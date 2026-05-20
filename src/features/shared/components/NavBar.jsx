@@ -36,7 +36,7 @@ const NavBar = () => {
             Post
           </button>
 
-          {/* 💬 CHAT ICON */}
+      
           <button
             className="icon-button"
             onClick={() => navigate("/messages")}
