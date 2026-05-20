@@ -1,0 +1,139 @@
+.messages-page {
+  display: flex;
+  height: calc(100vh - 60px);
+  padding-top: 60px;
+}
+/* LEFT */
+.chat-list {
+  width: 300px;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+}
+
+.chat-header-title {
+  padding: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  cursor: pointer;
+
+  border-bottom: 1px solid var(--border);
+  transition: 0.2s;
+}
+
+.chat-user:hover {
+  background: var(--hover);
+}
+
+.chat-user.active {
+  background: rgba(79, 70, 229, 0.1);
+}
+
+.chat-user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.user-info span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* RIGHT */
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.chat-header {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.chat-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* MESSAGES */
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* BUBBLES */
+.bubble {
+  max-width: 60%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.me {
+  align-self: flex-end;
+  background: #4f46e5;
+  color: white;
+}
+
+.other {
+  align-self: flex-start;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* INPUT */
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.chat-input button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* EMPTY */
+.chat-empty {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--muted);
+}

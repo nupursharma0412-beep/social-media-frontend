@@ -1,0 +1,162 @@
+.profile-page {
+  padding-top: 70px;
+  max-width: 900px;
+  margin: auto;
+  padding-inline: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid var(--border);
+    padding: 2px;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  button {
+    margin-top: 0.5rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.profile-posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+
+    border-radius: 6px;
+    transition: all 0.25s ease;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.03);
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.edit-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.edit-box {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 320px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+
+    &:focus {
+      border-color: #4f46e5;
+    }
+  }
+
+  textarea {
+    resize: none;
+    min-height: 80px;
+  }
+
+  button {
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:first-of-type {
+      background: #4f46e5;
+      color: white;
+    }
+
+    &:last-of-type {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

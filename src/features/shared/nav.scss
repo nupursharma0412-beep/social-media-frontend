@@ -1,0 +1,108 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(10px); // 🔥 premium glass effect
+  z-index: 100;
+
+  .nav-content {
+    width: 100%;
+    max-width: 900px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .icon-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    border-radius: 50%;
+
+    transition: all 0.2s ease;
+    p{
+      color: var(--text);
+    }
+    svg {
+      width: 22px;
+      height: 22px;
+      color: var(--text);
+      opacity: 0.8; 
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background: var(--hover);
+      svg {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+
+      border: 1px solid var(--border);
+      background: var(--card);
+
+      cursor: pointer;
+
+      transition: all 0.2s ease;
+
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        transform: scale(1.08);
+        border-color: var(--text);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}
