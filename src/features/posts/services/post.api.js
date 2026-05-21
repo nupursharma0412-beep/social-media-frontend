@@ -7,11 +7,13 @@ const api = axios.create({
 
 export async function getFeed() {
   const response = await api.get("/api/posts/feed");
+
   return response.data;
 }
 
 export async function createPost(img, caption) {
   const formData = new FormData();
+
   formData.append("img", img);
   formData.append("caption", caption);
 
@@ -19,4 +21,3 @@ export async function createPost(img, caption) {
 
   return response.data;
 }
-
