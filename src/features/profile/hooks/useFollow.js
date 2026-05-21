@@ -10,9 +10,9 @@ export const useFollow = (initialFollowing) => {
       setLoading(true);
 
       if (isFollowing) {
-        await api.post(`/users/unfollow/${userId}`);
+        await api.post(`/api/users/unfollow/${userId}`);
       } else {
-        await api.post(`/users/follow/${userId}`);
+        await api.post(`/api/users/follow/${userId}`);
       }
 
       setIsFollowing(!isFollowing);

@@ -10,7 +10,7 @@ const EditProfile = ({ user, setUser, close }) => {
     try {
       setLoading(true);
 
-      const res = await api.put("/users/edit", {
+      const res = await api.put("/api/users/edit", {
         username,
         bio,
       });

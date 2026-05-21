@@ -58,7 +58,7 @@ const Profile = () => {
     formData.append("profile", file);
 
     try {
-      const res = await api.put("/users/profile-image", formData);
+      const res = await api.put("/api/users/profile-image", formData);
 
       setUser((prev) => ({
         ...prev,
