@@ -10,7 +10,7 @@ export const useLike = (initialLike, initialCount) => {
     try {
       setLoading(true);
 
-      const res = await api.post(`/posts/like/${postId}`);
+      const res = await api.post(`/api/posts/like/${postId}`);
 
       const newLiked = res.data.liked;
 

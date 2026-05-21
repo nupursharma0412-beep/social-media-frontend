@@ -27,7 +27,7 @@ const Profile = () => {
       try {
         setLoading(true);
 
-        const res = await api.get(`/users/${id}`);
+        const res = await api.get(`/api/users/${id}`);
 
         setUser(res.data.user);
         setPosts(res.data.posts || []);
