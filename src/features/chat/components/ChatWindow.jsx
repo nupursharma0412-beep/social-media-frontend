@@ -18,16 +18,32 @@ const ChatWindow = ({ user }) => {
   useEffect(() => {
     if (!currentUser) return;
 
+    if (!socket.connected) {
+      socket.connect();
+    }
+
     socket.emit("addUser", currentUser._id);
 
-    socket.on("receiveMessage", (data) => {
+    return () => {
+      if (socket.connected) {
+        socket.disconnect();
+      }
+    };
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    const handleReceive = (data) => {
       if (data.senderId === user?._id) {
         setMessages((prev) => [...prev, data]);
       }
-    });
+    };
 
-    return () => socket.off("receiveMessage");
-  }, [user]);
+    socket.on("receiveMessage", handleReceive);
+
+    return () => socket.off("receiveMessage", handleReceive);
+  }, [currentUser, user]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
