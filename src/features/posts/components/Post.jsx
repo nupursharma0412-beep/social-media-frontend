@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLike } from "../hook/useLike";
 import CommentBox from "../../comments/components/CommentBox";
+import { FaHeart } from "react-icons/fa";
 
 const Post = ({ user, post }) => {
   const navigate = useNavigate();
@@ -50,28 +51,22 @@ const Post = ({ user, post }) => {
         {post.img && (
           <div className="post-media">
             <img src={post.img} alt="Post media" loading="lazy" />
-            {showHeart && <div className="heart-burst">❤️</div>}
+            {showHeart && <div className="heart-burst"><FaHeart size={25} /> </div>}
           </div>
         )}
       </div>
 
       <div className="post-actions">
         <button type="button" className="action-button" onClick={() => setShowComments((prev) => !prev)}>
-          <span>💬</span>
+          <span><MessageCircle size={20} /></span>
           <small>Comment</small>
         </button>
-        <button type="button" className="action-button">
-          <span>🔁</span>
-          <small>Repost</small>
-        </button>
+       
         <button type="button" className="action-button" onClick={() => toggleLike(post._id)} disabled={loading}>
-          <span>{liked ? "❤️" : "🤍"}</span>
+          <span>{liked ? <FaHeart size={20} /> : "🤍"}</span>
           <small>{count}</small>
         </button>
-        <button type="button" className="action-button">
-          <span>📤</span>
-          <small>Share</small>
-        </button>
+   
       </div>
 
       {showComments && <CommentBox postId={post._id} />}
