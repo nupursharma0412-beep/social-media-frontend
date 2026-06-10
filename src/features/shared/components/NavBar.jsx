@@ -15,7 +15,7 @@ const NavBar = () => {
         <div className="nav-brand" onClick={() => navigate("/")}>
           <span className="brand-mark">C</span>
           <div>
-            <strong>Social LIfe</strong>
+            <strong>Social Life</strong>
             <span>Social feed</span>
           </div>
         </div>
