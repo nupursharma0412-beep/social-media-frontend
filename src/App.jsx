@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Loading from "./features/shared/components/Loading";
 import "./features/shared/global.scss";
+
 function App() {
   return (
     <AuthProvider>
@@ -20,7 +21,11 @@ function App() {
 
       </PostContextProvider>
 
-      <ToastContainer position="top-right" autoClose={3000} theme="light" />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="dark"
+      />
     </AuthProvider>
   );
 }
