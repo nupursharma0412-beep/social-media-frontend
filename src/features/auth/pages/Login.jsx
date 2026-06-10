@@ -1,22 +1,21 @@
 import React, { useState, useRef } from "react";
-import "../style/form.scss"
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import Loading from "../../shared/components/Loading";
+import "../style/form.scss";
+
 const Login = () => {
   const { loading, handleLogin } = useAuth();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const usernameRef = useRef();
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (loading) return;
 
     if (!username || !password) {
@@ -31,10 +30,8 @@ const Login = () => {
       navigate("/");
     } else {
       toast.error(result.message || "Login failed");
-
       setUsername("");
       setPassword("");
-
       usernameRef.current.focus();
     }
   };
@@ -44,27 +41,33 @@ const Login = () => {
       <div className="form-container">
         <h1>Login</h1>
 
+        {/* CHANGED: wrapped in fieldset to disable all inputs at once during loading */}
         <form onSubmit={handleSubmit}>
-          <input
-            ref={usernameRef}
-            value={username}
-            disabled={loading}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder="Enter username"
-          />
+          <fieldset disabled={loading} style={{ border: "none", padding: 0, margin: 0 }}>
+            <input
+              ref={usernameRef}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              name="username"               // ADDED: name attribute
+              autoComplete="username"       // ADDED: autocomplete
+              placeholder="Enter username"
+            />
 
-          <input
-            value={password}
-            disabled={loading}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Enter password"
-          />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              name="password"               // ADDED: name attribute
+              autoComplete="current-password" // ADDED: autocomplete
+              placeholder="Enter password"
+            />
 
-          <button disabled={loading} className="button">
-            {loading ? <Loading/> : "Login"}
-          </button>
+            <button type="submit" className="button">
+              {/* ADDED: type="submit" explicitly */}
+              {loading ? <Loading /> : "Login"}
+            </button>
+          </fieldset>
         </form>
 
         <p>

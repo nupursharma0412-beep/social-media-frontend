@@ -8,14 +8,12 @@ export const useAuth = () => {
   const handleLogin = async (username, password) => {
     try {
       setLoading(true);
-
       const response = await login(username, password);
-      setUser(response.user);
-
+      // CHANGED: fallback if backend returns user directly instead of { user }
+      setUser(response.user ?? response);
       return { success: true };
     } catch (error) {
-      const message =
-        error.response?.data?.message || "Login failed";
+      const message = error.response?.data?.message || "Login failed";
       return { success: false, message };
     } finally {
       setLoading(false);
@@ -25,14 +23,12 @@ export const useAuth = () => {
   const handleRegister = async (username, email, password) => {
     try {
       setLoading(true);
-
       const response = await register(username, email, password);
-      setUser(response.user);
-
+      // CHANGED: fallback if backend returns user directly instead of { user }
+      setUser(response.user ?? response);
       return { success: true };
     } catch (error) {
-      const message =
-        error.response?.data?.message || "Register failed";
+      const message = error.response?.data?.message || "Register failed";
       return { success: false, message };
     } finally {
       setLoading(false);
