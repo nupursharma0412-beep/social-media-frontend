@@ -9,28 +9,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Loading from "./features/shared/components/Loading";
 import "./features/shared/global.scss";
-import { ThemeProvider, useTheme } from "./features/shared/theme.context";
-
-function AppContent() {
-  const { theme } = useTheme();
-
-  return (
-    <PostContextProvider>
-      <Suspense fallback={<Loading />}>
-        <RouterProvider router={router} />
-      </Suspense>
-
-      <ToastContainer position="top-right" autoClose={3000} theme={theme === "dark" ? "dark" : "light"} />
-    </PostContextProvider>
-  );
-}
-
 function App() {
   return (
     <AuthProvider>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
+      <PostContextProvider>
+
+        <Suspense fallback={<Loading />}>
+          <RouterProvider router={router} />
+        </Suspense>
+
+      </PostContextProvider>
+
+      <ToastContainer position="top-right" autoClose={3000} theme="light" />
     </AuthProvider>
   );
 }

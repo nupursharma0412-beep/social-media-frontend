@@ -1,52 +1,48 @@
-.button {
+﻿.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  height: 36px;
-  padding: 0 12px;
-
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-
-  font-size: 0.88rem;
-  font-weight: 500;
-
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  background: transparent;
+  gap: 0.65rem;
+  min-height: 44px;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
   color: var(--text);
-
-  &:hover {
-    opacity: 0.9;
-  }
-
-  &:active {
-    transform: scale(0.96);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  &.outline-button {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
-/* Primary variation available for nav styles to reuse */
-.button.primary {
-  background: var(--ig-gradient);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(81,91,212,0.12);
+.button:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.1);
 }
 
-.button.ghost {
-  background: transparent;
-  border: 1px dashed rgba(0,0,0,0.06);
+.button:active {
+  transform: scale(0.98);
+}
+
+.button-primary,
+.button.button-pill {
+  background: var(--primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 18px 40px rgba(29,155,240,0.26);
+}
+
+.button-primary:hover,
+.button.button-pill:hover {
+  background: #1d8fe6;
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  cursor: pointer;
 }

@@ -19,9 +19,13 @@ const CommentBox = ({ postId }) => {
     <div className="comment-box">
       <div className="comment-list">
         {comments.map((c) => (
-          <p key={c._id}>
-            <b>{c.user.username}</b> {c.text}
-          </p>
+          <div className="comment-item" key={c._id}>
+            <div className="comment-avatar">{c.user.username?.[0]?.toUpperCase()}</div>
+            <div className="comment-content">
+              <div className="comment-author">{c.user.username}</div>
+              <p>{c.text}</p>
+            </div>
+          </div>
         ))}
       </div>
 
@@ -31,7 +35,7 @@ const CommentBox = ({ postId }) => {
           onChange={(e) => setText(e.target.value)}
           placeholder="Add a comment..."
         />
-        <button onClick={handleSubmit}>Post</button>
+        <button className="button button-pill" onClick={handleSubmit}>Post</button>
       </div>
     </div>
   );

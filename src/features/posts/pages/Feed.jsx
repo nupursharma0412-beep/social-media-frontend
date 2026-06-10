@@ -2,31 +2,36 @@ import React, { useEffect } from 'react'
 import "../style/feed.scss"
 import Post from '../components/Post'
 import { usePost } from '../hook/userPost'
-import NavBar from '../../shared/components/NavBar'
 import Loading from '../../shared/components/Loading'
-const Feed = () => {
-    const {feed , handleGetFeed ,loading} = usePost()
 
-    useEffect(()=>{
+const Feed = () => {
+    const { feed, handleGetFeed, loading } = usePost()
+
+    useEffect(() => {
         handleGetFeed()
-    },[])
-    if(loading || !feed){
-        return (<Loading/>)
+    }, [])
+
+    if (loading || !feed) {
+        return <Loading />
     }
-    console.log(feed);
-    
 
     return (
-        <main className='feed-page'>
-            <NavBar/>
-            <div className="feed">
-                <div className="posts">
-                    {feed.map(post=>{
-                        return <Post user={post.user} post={post}/>
-                    })}
+        <section className='feed-page'>
+            <div className="feed-header">
+                <div>
+                    <h2>Home</h2>
+                    <p>See what’s happening right now.</p>
                 </div>
             </div>
-        </main>
+
+            <div className="feed">
+                <div className="posts">
+                    {feed.map((post) => (
+                        <Post key={post._id} user={post.user} post={post} />
+                    ))}
+                </div>
+            </div>
+        </section>
     )
 }
 
