@@ -65,7 +65,7 @@ const Post = ({ user, post }) => {
         </button>
        
         <button type="button" className="action-button" onClick={() => toggleLike(post._id)} disabled={loading}>
-          <span>{liked ? <FaHeart size={20} /> : "🤍"}</span>
+          <span>{liked ? <FaHeart size={20} color="red"/> : "🤍"}</span>
           <small>{count}</small>
         </button>
    
