@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/hooks/useAuth";
 import "../nav.scss";
 import { MessageCircle } from "lucide-react";
+import { useTheme } from "../theme.context";
 
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const [theme, setTheme] = useState("dark");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="nav-bar">
@@ -46,10 +39,7 @@ const NavBar = () => {
             <p>Message</p>
           </button>
 
-          <button
-            onClick={toggleTheme}
-            className="button outline-button"
-          >
+          <button onClick={toggleTheme} className="button outline-button">
             {theme === "dark" ? "Light" : "Dark"}
           </button>
 

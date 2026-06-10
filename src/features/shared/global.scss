@@ -4,15 +4,21 @@
 :root {
   --bg: #ffffff;
   --text: #111;
+  --card: #ffffff;
+  --radius: 12px;
   --border: #ddd;
   --hover: rgba(0, 0, 0, 0.05);
+  --muted: #6b7280;
+  --shadow: 0 6px 20px rgba(16,24,40,0.06);
 }
 
 [data-theme="dark"] {
-  --bg: #0f0f0f;
+  --bg: #0b0b0c;
   --text: #ffffff;
+  --card: #0f0f12;
   --border: #262626;
-  --hover: rgba(255, 255, 255, 0.08); 
+  --hover: rgba(255, 255, 255, 0.06);
+  --shadow: 0 6px 20px rgba(2,6,23,0.6);
 }
 
 /* LIGHT */
@@ -43,6 +49,14 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* Subtle transitions for components using tokens */
+* {
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
 }
 
 /* LINKS */
