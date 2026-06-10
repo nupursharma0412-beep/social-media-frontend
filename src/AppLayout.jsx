@@ -2,6 +2,12 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "./features/auth/hooks/useAuth";
 import NavBar from "./features/shared/components/NavBar";
+import { FaHome ,
+  Sparkles,
+  MessageCircle,
+  User
+  
+ } from "react-icons/fa";
 
 const AppLayout = () => {
   const { user } = useAuth();
@@ -22,19 +28,20 @@ const AppLayout = () => {
 
           <nav className="sidebar-nav">
             <NavLink to="/" end>
-              <span className="nav-icon">🏠</span>
+              <span className="nav-icon"><FaHome size={25} />
+</span>
               Home
             </NavLink>
             <NavLink to="/create-post">
-              <span className="nav-icon">✍️</span>
+              <span className="nav-icon"><Sparkles size={25} /></span>
               New Post
             </NavLink>
             <NavLink to="/messages">
-              <span className="nav-icon">💬</span>
+              <span className="nav-icon"><MessageCircle size={25} /></span>
               Messages
             </NavLink>
             <NavLink to={`/profile/${user?._id}`}>
-              <span className="nav-icon">👤</span>
+              <span className="nav-icon"><User size={25} /></span>
               Profile
             </NavLink>
           </nav>
@@ -71,28 +78,7 @@ const AppLayout = () => {
             </ul>
           </div>
 
-          <div className="suggestions-card card">
-            <div className="card-header">
-              <span>Who to follow</span>
-              <small>Suggestions</small>
-            </div>
-            <ul>
-              <li>
-                <div>
-                  <strong>Jane Doe</strong>
-                  <span>@jane_dev</span>
-                </div>
-                <button className="button button-pill">Follow</button>
-              </li>
-              <li>
-                <div>
-                  <strong>Pixel Studio</strong>
-                  <span>@pixel_studio</span>
-                </div>
-                <button className="button button-pill">Follow</button>
-              </li>
-            </ul>
-          </div>
+        
         </aside>
       </div>
 
