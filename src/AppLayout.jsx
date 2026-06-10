@@ -2,12 +2,8 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "./features/auth/hooks/useAuth";
 import NavBar from "./features/shared/components/NavBar";
-import { FaHome ,
-  Sparkles,
-  MessageCircle,
-  User
-  
- } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { Sparkles, MessageCircle, User } from "lucide-react";
 
 const AppLayout = () => {
   const { user } = useAuth();
