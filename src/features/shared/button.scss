@@ -15,8 +15,8 @@
   cursor: pointer;
   transition: all 0.15s ease;
 
-  background: var(--text);
-  color: var(--bg);
+  background: transparent;
+  color: var(--text);
 
   &:hover {
     opacity: 0.9;
@@ -35,5 +35,18 @@
   &.outline-button {
     background: transparent;
     color: var(--text);
+    border: 1px solid var(--border);
   }
+}
+
+/* Primary variation available for nav styles to reuse */
+.button.primary {
+  background: var(--ig-gradient);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(81,91,212,0.12);
+}
+
+.button.ghost {
+  background: transparent;
+  border: 1px dashed rgba(0,0,0,0.06);
 }

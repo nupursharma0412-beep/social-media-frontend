@@ -36,7 +36,11 @@
     font-size: 1.4rem;
     font-weight: 700;
 
-    color: var(--text);
+    /* gradient text like Instagram */
+    background: var(--ig-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 
     cursor: pointer;
 
@@ -73,40 +77,32 @@
   }
 
   .primary-button {
-    background: linear-gradient(
-      135deg,
-      #6c63ff,
-      #8b5cf6
-    );
-
+    background: var(--ig-gradient);
     color: white;
-
-    box-shadow: 0 4px 14px rgba(108, 99, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(81,91,212,0.16);
 
     &:hover {
-      transform: translateY(-2px);
-
-      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 34px rgba(81,91,212,0.18);
     }
 
     &:active {
-      transform: scale(0.96);
+      transform: scale(0.98);
     }
   }
 
   .outline-button {
     background: transparent;
-
     border: 1px solid var(--border);
-
     color: var(--text);
 
     &:hover {
       background: var(--hover);
+      color: var(--text);
     }
 
     &:active {
-      transform: scale(0.96);
+      transform: scale(0.98);
     }
   }
 
@@ -172,23 +168,17 @@
       border-radius: 50%;
       object-fit: cover;
 
-      border: 2px solid transparent;
-
+      border: 2px solid rgba(255,255,255,0.08);
       background: var(--card);
-
       transition: all 0.25s ease;
-
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 16px rgba(16,24,40,0.12);
 
       &:hover {
-        transform: scale(1.08);
-
-        border-color: #8b5cf6;
+        transform: scale(1.06);
+        box-shadow: 0 10px 30px rgba(16,24,40,0.14);
       }
 
-      &:active {
-        transform: scale(0.95);
-      }
+      &:active { transform: scale(0.98); }
     }
   }
 }

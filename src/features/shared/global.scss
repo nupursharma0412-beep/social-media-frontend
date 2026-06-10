@@ -1,31 +1,39 @@
 @use "./button.scss";
 
-/* THEME TOKENS */
+/* Instagram-like Theme Tokens */
 :root {
   --bg: #ffffff;
-  --text: #111;
-  --card: #ffffff;
-  --radius: 12px;
-  --border: #ddd;
-  --hover: rgba(0, 0, 0, 0.05);
+  --text: #111111;
   --muted: #6b7280;
-  --shadow: 0 6px 20px rgba(16,24,40,0.06);
+  --card: #ffffff;
+  --radius: 14px;
+  --border: #e6e6e6;
+  --hover: rgba(0,0,0,0.06);
+  --shadow: 0 10px 30px rgba(16,24,40,0.08);
+
+  --ig-gradient: linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
+  --ig-accent: #dd2a7b;
+  --glass: rgba(255,255,255,0.6);
 }
 
 [data-theme="dark"] {
   --bg: #0b0b0c;
-  --text: #ffffff;
+  --text: #f2f2f2;
   --card: #0f0f12;
-  --border: #262626;
-  --hover: rgba(255, 255, 255, 0.06);
-  --shadow: 0 6px 20px rgba(2,6,23,0.6);
+  --border: #1f1f1f;
+  --hover: rgba(255,255,255,0.04);
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+
+  --ig-gradient: linear-gradient(135deg,#622774,#c13584,#f58529);
+  --ig-accent: #c13584;
+  --glass: rgba(18,18,20,0.55);
 }
 
 /* LIGHT */
 html[data-theme="light"] {
-  --bg: #ffffff;
-  --card: #f9f9f9;
-  --border: #e5e7eb;
+  --bg: #fafafa;
+  --card: #ffffff;
+  --border: #eaeaea;
 
   --text: #111111;
   --muted: #6b7280;
@@ -48,7 +56,7 @@ html, body, #root {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, sans-serif;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.18s ease, color 0.18s ease;
@@ -56,7 +64,15 @@ body {
 
 /* Subtle transitions for components using tokens */
 * {
-  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Cards to use across the app */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 /* LINKS */
