@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useLike } from "../hook/useLike";
 import CommentBox from "../../comments/components/CommentBox";
 import { FaHeart } from "react-icons/fa";
+import { MessageCircle } from "lucide-react";
+import "./post.scss";
 
 const Post = ({ user, post }) => {
   const navigate = useNavigate();
